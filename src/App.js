@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import styles from './app.module.css'
+import { Routes, Route } from 'react-router'
+import firebase, { FirebaseContext } from './firebase'
+import Home from './components/pages/Home/Home'
+import Orders from './components/pages/Orders/Orders'
+import Menu from './components/pages/Menu/Menu'
+import New from './components/pages/New/New'
+import Sidebar from './components/Sidebar/Sidebar'
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <FirebaseContext.Provider value={{ firebase }}>
+      <div className={styles.container}>
+        <Sidebar />
+        <div className={styles.container__components}>
+          <Routes>
+            <Route path="/" element={<Orders />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="/menu" element={<Menu />} />
+            <Route path="/new" element={<New />} />
+          </Routes>
+        </div>
+      </div>
+    </FirebaseContext.Provider>
+  )
 }
-
-export default App;

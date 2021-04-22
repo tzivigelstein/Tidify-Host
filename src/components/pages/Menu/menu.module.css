@@ -1,0 +1,36 @@
+.menu_container {
+  height: max-content;
+  position: relative;
+}
+
+.menu_container__heading {
+  display: flex;
+  align-items: center;
+}
+
+.heading__title {
+  margin: 0;
+}
+
+.heading__new {
+  background-color: #f55632;
+  border-radius: 999px;
+  padding: 0.2rem 0.7rem;
+  display: flex;
+  align-items: center;
+  width: max-content;
+  text-decoration: none;
+  color: #fff;
+  margin: 0.7rem 1rem;
+}
+
+.menu_container__list_container {
+  margin: 1rem 0;
+}
+
+.list_container__list {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+}

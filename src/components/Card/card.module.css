@@ -1,0 +1,119 @@
+.product_container__preview_container {
+  height: max-content;
+  width: 100%;
+  padding: 1rem 0;
+  display: flex;
+  transition: 0.3s ease-out;
+  border-bottom: 1px solid rgba(229, 229, 228, 0.6);
+}
+
+.product_container__preview_container:active {
+  box-shadow: 0 1px 6px rgb(32 33 36 / 28%);
+}
+
+.preview_container__image_container {
+  display: flex;
+  width: 97.5px;
+  height: 99px;
+}
+
+.image_container__image {
+  flex: 1 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+  object-fit: cover;
+  border-radius: 1rem;
+}
+
+.preview_container__info_container {
+  border-radius: 0 1rem 1rem 0;
+  width: calc(100% - 97.5px);
+  margin: 0 1rem;
+}
+
+.info_container__heading {
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  font-size: 1.3rem;
+  color: #fff;
+  padding: 0.5rem 0;
+  width: 100%;
+  height: max-content;
+  overflow: hidden;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.heading__title {
+  margin: 0;
+  color: rgba(0, 0, 0, 87%);
+  font-size: 1.2rem;
+  white-space: nowrap;
+  max-width: 70%;
+  overflow: hidden;
+}
+
+.heading__price {
+  color: rgba(0, 0, 0, 60%);
+  font-size: 0.9rem;
+  margin: 0;
+  text-shadow: 0px 1px 6px rgb(64 60 67 / 16%);
+}
+
+.info_container__categories {
+  display: flex;
+  width: max-content;
+}
+
+.categories__category {
+  font-size: 0.85rem;
+  width: max-content;
+  color: rgba(0, 0, 0, 60%);
+  text-align: center;
+}
+
+.info_container__description {
+  color: rgba(0, 0, 0, 60%);
+  padding: 0.5rem 0;
+  margin: 0;
+  word-wrap: break-word;
+}
+
+.info_container__select {
+  background-color: #fff;
+  border: none;
+  border-radius: 2rem;
+  outline: none;
+  padding: 0.6rem 0.7rem;
+  font-size: 1rem;
+  box-shadow: 0 1px 6px rgb(32 33 36 / 16%);
+  font-family: sans-serif;
+}
+
+@media (max-width: 480px) {
+  .product_container__preview_container {
+    margin: 1rem 0;
+  }
+
+  .preview_container__image_container {
+    width: 120px;
+  }
+
+  .preview_container__info_container {
+    width: calc(100% - 120px);
+  }
+
+  .heading__title {
+    font-size: 1rem;
+  }
+
+  .heading__price {
+    align-self: flex-start;
+  }
+
+  .info_container__description {
+    font-size: 0.9rem;
+    overflow: hidden;
+  }
+}

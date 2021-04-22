@@ -1,0 +1,135 @@
+.new_container__heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.heading__title {
+  margin: 0;
+}
+
+.new_container__product_container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.product_container__form_container {
+  width: 40%;
+}
+
+.form_container__form {
+  width: 100%;
+}
+
+.form__button {
+  background-color: #f55632;
+  border: none;
+  border-radius: 2rem;
+  box-shadow: 0 1px 6px rgb(32 33 36 / 16%);
+  color: #fff;
+  cursor: pointer;
+  font-family: sans-serif;
+  font-size: 1rem;
+  font-weight: bold;
+  outline: none;
+  padding: 0.4rem 1.7rem;
+  width: max-content;
+}
+
+.form__field_container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.field_container__progress_container {
+  margin: 1rem 0;
+}
+
+.progress_container__progress {
+  width: 100%;
+  margin-bottom: 0.3rem;
+  box-shadow: 0 1px 6px rgb(32 33 36 / 16%);
+  display: flex;
+  border-radius: 6px;
+}
+
+.progress__bar {
+  background-color: #4bb543;
+  padding: 0.4rem 0;
+  border-radius: 6px;
+}
+
+.progress_container__indicators {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+#form__price_category {
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#form__price_category div:last-of-type {
+  margin-left: 1rem;
+}
+
+.field_container__error_message {
+  color: #fa3d22;
+  margin: 0.5rem 0.7rem;
+  font-size: 0.88rem;
+  min-height: 1rem;
+}
+
+.field_container__label {
+  font-size: 0.8rem;
+  color: rgba(0, 0, 0, 60%);
+  margin: 0.3rem 0.5rem;
+  display: block;
+}
+
+.field_container__input {
+  box-sizing: border-box;
+  border-radius: 2rem;
+  padding: 0.6rem 0.7rem;
+  outline: none;
+  border: none;
+  box-shadow: 0 1px 6px rgb(32 33 36 / 16%);
+  width: 100%;
+  font-size: 1rem;
+  font-family: sans-serif;
+}
+
+.field_container__textarea {
+  box-sizing: border-box;
+  border-radius: 1rem;
+  padding: 0.7rem;
+  outline: none;
+  border: none;
+  box-shadow: 0 1px 6px rgb(32 33 36 / 16%);
+  width: 100%;
+  font-size: 1rem;
+  font-family: sans-serif;
+  min-height: 120px;
+  word-wrap: break-word;
+}
+
+.field_container__select {
+  background-color: #fff;
+  border: none;
+  border-radius: 2rem;
+  outline: none;
+  padding: 0.6rem 0.7rem;
+  font-size: 1rem;
+  box-shadow: 0 1px 6px rgb(32 33 36 / 16%);
+  font-family: sans-serif;
+}
+
+@media (max-width: 992px) {
+  .product_container__form_container {
+    width: 100%;
+  }
+}
