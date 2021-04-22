@@ -31,7 +31,7 @@ const New = () => {
       category: Yup.string().required('La categoría es obligatoria'),
     }),
     onSubmit: data => {
-      const newData = { ...data, image: imageUrl }
+      const newData = { ...data, image: imageUrl, sold: 0, bestSeller: false }
       try {
         firebase.db.collection('products').add(newData)
         router('/menu')
