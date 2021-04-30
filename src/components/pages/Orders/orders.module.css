@@ -1,0 +1,75 @@
+.ordersList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.orderCard {
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(229, 229, 228, 0.6);
+}
+
+.heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.indicatorContainer {
+  display: flex;
+  align-items: center;
+}
+
+.indicatorBorder {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  border: 2.2px solid rgba(255, 193, 5, 40%);
+  margin-left: 16px;
+}
+
+.indicator {
+  width: 16px;
+  height: 16px;
+  box-sizing: border-box;
+  background-color: #ffc107;
+  animation: infinite ease-in-out 3s;
+  animation-name: fade;
+  border-radius: 999px;
+}
+
+.products {
+  margin: 0 auto;
+  padding: 0;
+  width: 70%;
+}
+
+.id {
+  color: rgba(0, 0, 0, 60%);
+  font-size: 13px;
+  text-align: center;
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0.4;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0.4;
+  }
+}
+
+@media (min-width: 768px) {
+  .products {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
