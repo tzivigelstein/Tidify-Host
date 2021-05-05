@@ -31,7 +31,7 @@ const New = () => {
       category: Yup.string().required('La categoría es obligatoria'),
     }),
     onSubmit: data => {
-      const sold = randomSold()
+      const sold = randomSold(0, 100000)
       const newData = { ...data, image: imageUrl, sold, bestSeller: false, createdAt: Date.now() }
       try {
         firebase.db.collection('products').add(newData)
