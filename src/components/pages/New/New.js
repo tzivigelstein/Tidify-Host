@@ -31,7 +31,8 @@ const New = () => {
       category: Yup.string().required('La categoría es obligatoria'),
     }),
     onSubmit: data => {
-      const newData = { ...data, image: imageUrl, sold: 0, bestSeller: false, createdAt: Date.now() }
+      const sold = randomSold()
+      const newData = { ...data, image: imageUrl, sold, bestSeller: false, createdAt: Date.now() }
       try {
         firebase.db.collection('products').add(newData)
         router('/menu')
@@ -40,6 +41,10 @@ const New = () => {
       }
     },
   })
+
+  const randomSold = (min, max) => {
+    return Math.floor(Math.random() * (max - min) + min)
+  }
 
   const handleUploadStart = () => {
     setProgress(0)
