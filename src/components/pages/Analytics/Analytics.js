@@ -32,9 +32,7 @@ const Analytics = () => {
       return acc
     }, {})
 
-  const totalCategoryAmount = Object.values(categoryAmounts).reduce((acc, el) => acc + el, 0)
-
-  alert(totalCategoryAmount)
+  const totalCategoryAmount = categoryAmounts && Object.values(categoryAmounts).reduce((acc, el) => acc + el, 0)
 
   function getCategoryPercent(category) {
     return getPercent(categoryAmounts && categoryAmounts[category], totalCategoryAmount)
