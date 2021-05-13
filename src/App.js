@@ -5,6 +5,7 @@ import Home from './components/pages/Home/Home'
 import Orders from './components/pages/Orders/Orders'
 import Menu from './components/pages/Menu/Menu'
 import New from './components/pages/New/New'
+import Analytics from './components/pages/Analytics/Analytics'
 import Sidebar from './components/Sidebar/Sidebar'
 
 export default function App() {
@@ -18,6 +19,7 @@ export default function App() {
             <Route path="/home" element={<Home />} />
             <Route path="/menu" element={<Menu />} />
             <Route path="/new" element={<New />} />
+            <Route path="/analytics" element={<Analytics />} />
           </Routes>
         </div>
       </div>

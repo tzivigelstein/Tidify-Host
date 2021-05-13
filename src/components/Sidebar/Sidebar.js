@@ -16,6 +16,9 @@ const Sidebar = () => {
           <NavLink end to="/menu" className={styles.nav__link} activeClassName={styles.nav__link_active}>
             Menu
           </NavLink>
+          <NavLink end to="/analytics" className={styles.nav__link} activeClassName={styles.nav__link_active}>
+            Analíticas
+          </NavLink>
         </nav>
       </div>
     </div>
