@@ -1,0 +1,23 @@
+.tipContainer {
+  background-color: #e1f5fe;
+  border-radius: 0.6rem;
+  margin: 2rem 0;
+  padding: 1rem;
+}
+
+.tipsHeader {
+  display: flex;
+  align-items: center;
+}
+
+.tipsHeaderText {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 0 0 0 0.6rem;
+  color: #01579b;
+}
+
+.tipText {
+  color: #01579b;
+  margin: 0.8rem 0;
+}
