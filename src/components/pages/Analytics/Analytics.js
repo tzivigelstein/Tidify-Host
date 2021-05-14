@@ -15,7 +15,6 @@ const CATEGORIES = [
 const Analytics = () => {
   const { firebase } = useContext(FirebaseContext)
   const [products, setProducts] = useState(null)
-  const [categoryPercent, setCategoryPercent] = useState(0)
   const stock = products && products.filter(product => product.stock).length
   const stockPercent = products ? getPercent(stock, products.length) : 0
   const relativeStockPercent = getRelativePercent(stockPercent)
@@ -32,18 +31,23 @@ const Analytics = () => {
       return acc
     }, {})
 
-  const totalCategoryAmount = categoryAmounts && Object.values(categoryAmounts).reduce((acc, el) => acc + el, 0)
+  const totalCategoryAmount = products && products.length
 
   function getCategoryPercent(category) {
-    return getPercent(categoryAmounts && categoryAmounts[category], totalCategoryAmount)
+    return parseFloat(getPercent(categoryAmounts && categoryAmounts[category], totalCategoryAmount))
   }
 
   function getPercent(a, b) {
-    return ((a * 100) / b).toFixed(1)
+    return parseFloat(((a * 100) / b).toFixed(1)) || 0
   }
 
-  function getRelativePercent(percent) {
-    return (440 - (440 * percent) / 100).toFixed(2)
+  function getRelativePercent(percent, size) {
+    let mult = 440
+    if (size === 'small') {
+      mult = 293.93
+    }
+
+    return parseFloat((mult - (mult * percent) / 100).toFixed(2)) || 0
   }
 
   useEffect(() => {
@@ -73,17 +77,21 @@ const Analytics = () => {
       <div className={styles.categorySection}>
         <h3>Categorías</h3>
         <div className={styles.categoriesChartList}>
-          {CATEGORIES.map(({ id, foregroundColor, backgroundColor, category }) => (
-            <PieChart
-              key={id}
-              size="small"
-              foregroundColor={foregroundColor}
-              backgroundColor={backgroundColor}
-              title={category}
-              percent={getCategoryPercent(category)}
-              relativePercent={getRelativePercent(getCategoryPercent(category))}
-            />
-          ))}
+          {CATEGORIES.map(({ id, foregroundColor, backgroundColor, category }) => {
+            const percent = getCategoryPercent(category)
+            const relativePercent = getRelativePercent(getCategoryPercent(category), 'small')
+            return (
+              <PieChart
+                key={id}
+                size="small"
+                foregroundColor={foregroundColor}
+                backgroundColor={backgroundColor}
+                title={category}
+                percent={percent}
+                relativePercent={relativePercent}
+              />
+            )
+          })}
         </div>
       </div>
     </div>
