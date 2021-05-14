@@ -26,7 +26,7 @@ const Analytics = () => {
 
   return (
     <div>
-      <h1>Analíticas</h1>
+      <h1 className={styles.title}>Analíticas</h1>
       <div>
         <div className={styles.logisticsSection}>
           <PieChart
