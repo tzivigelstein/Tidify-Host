@@ -9,7 +9,6 @@ import Preview from '../../Preview/Preview'
 const New = () => {
   const [uploading, setUploading] = useState(false)
   const [progress, setProgress] = useState(0)
-  const [imageUrl, setImageUrl] = useState('')
 
   const { addProduct, url, getUrl, storageRef } = useContext(FirebaseContext)
 
@@ -29,7 +28,7 @@ const New = () => {
     }),
     onSubmit: data => {
       const sold = randomSold(0, 100000)
-      const newProduct = { ...data, image: imageUrl, sold, bestSeller: false, createdAt: Date.now() }
+      const newProduct = { ...data, image: url, sold, bestSeller: false, createdAt: Date.now() }
       try {
         addProduct(newProduct)
       } catch (error) {
@@ -56,8 +55,7 @@ const New = () => {
   const handleUploadSuccess = async name => {
     setProgress(100)
     setUploading(false)
-    getUrl()
-    setImageUrl(url)
+    getUrl(name)
   }
 
   const handleUploadProgress = progress => {
@@ -205,7 +203,7 @@ const New = () => {
             </div>
           </form>
         </div>
-        <Preview imageUrl={imageUrl} values={formik.values} />
+        <Preview imageUrl={url} values={formik.values} />
       </div>
     </div>
   )

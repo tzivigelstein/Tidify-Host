@@ -1,4 +1,4 @@
-import { GET_ORDERS, GET_PRODUCTS, GET_PRODUCTS_ERROR, GET_PRODUCTS_SUCCESS } from '../types'
+import { GET_ORDERS, GET_PRODUCTS, GET_PRODUCTS_ERROR, GET_PRODUCTS_SUCCESS, SET_URL } from '../types'
 
 export default (state, action) => {
   switch (action.type) {
@@ -23,6 +23,11 @@ export default (state, action) => {
       return {
         ...state,
         orders: action.payload,
+      }
+    case SET_URL:
+      return {
+        ...state,
+        url: action.payload,
       }
     default:
       return state

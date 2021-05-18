@@ -9,6 +9,7 @@ const FirebaseState = ({ children }) => {
   const initialState = {
     products: [],
     orders: [],
+    url: null,
     lastDocument: null,
     loading: false,
     loadingMore: false,
@@ -94,6 +95,7 @@ const FirebaseState = ({ children }) => {
       value={{
         products: state.products,
         orders: state.orders,
+        url: state.url,
         loading: state.loading,
         loadingMore: state.loadingMore,
         storageRef: state.storageRef,
