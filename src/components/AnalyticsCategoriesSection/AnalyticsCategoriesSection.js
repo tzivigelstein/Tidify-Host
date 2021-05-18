@@ -1,6 +1,5 @@
 import React from 'react'
 import { getPercent, getRelativePercent } from '../../helpers/getPercents'
-import { InfoIcon } from '../Icons/Index'
 import PieChart from '../PieChart/PieChart'
 import Tip from '../Tip/Tip'
 import styles from './analyticscategoriessection.module.css'

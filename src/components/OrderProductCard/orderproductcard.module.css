@@ -1,10 +1,12 @@
 .product_container__preview_container {
   height: max-content;
-  width: 100%;
   padding: 1rem 0;
   display: flex;
   transition: 0.3s ease-out;
   border-bottom: 1px solid rgba(229, 229, 228, 0.6);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  margin: 1rem;
+  border-radius: 1rem;
 }
 
 .product_container__preview_container:active {

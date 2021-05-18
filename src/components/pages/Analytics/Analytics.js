@@ -1,5 +1,5 @@
-import { useContext, useEffect, useState } from 'react'
-import { FirebaseContext } from '../../../firebase'
+import { useContext, useEffect } from 'react'
+import FirebaseContext from '../../../context/firebaseContext'
 import { getPercent, getRelativePercent } from '../../../helpers/getPercents'
 import AnalyticsCategoriesSection from '../../AnalyticsCategoriesSection/AnalyticsCategoriesSection'
 import PieChart from '../../PieChart/PieChart'
@@ -7,22 +7,14 @@ import Tip from '../../Tip/Tip'
 import styles from './analytics.module.css'
 
 const Analytics = () => {
-  const { firebase } = useContext(FirebaseContext)
-  const [products, setProducts] = useState(null)
+  const { products, getProducts } = useContext(FirebaseContext)
   const stock = products && products.filter(product => product.stock).length
   const stockPercent = products ? getPercent(stock, products.length) : 0
   const relativeStockPercent = getRelativePercent(stockPercent)
 
   useEffect(() => {
-    firebase.db.collection('products').onSnapshot(handleSnapshot)
+    products.length === 0 && getProducts()
   }, [])
-
-  const handleSnapshot = snapshot => {
-    const products = snapshot.docs.map(doc => {
-      return { id: doc.id, ...doc.data() }
-    })
-    setProducts(products)
-  }
 
   return (
     <div>

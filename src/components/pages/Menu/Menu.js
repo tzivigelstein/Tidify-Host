@@ -1,29 +1,16 @@
-import { useContext, useEffect, useState } from 'react'
+import { useContext, useEffect } from 'react'
 import styles from './menu.module.css'
 import { Link } from 'react-router-dom'
 import { PlusIcon } from '../../Icons/Index'
-import { FirebaseContext } from '../../../firebase'
+import FirebaseContext from '../../../context/firebaseContext'
 import Card from '../../Card/Card'
 
 const Menu = () => {
-  const { firebase } = useContext(FirebaseContext)
-
-  const [products, setProducts] = useState()
+  const { products, getProducts } = useContext(FirebaseContext)
 
   useEffect(() => {
-    getProducts()
+    products.length === 0 && getProducts()
   }, [])
-
-  const getProducts = () => {
-    firebase.db.collection('products').onSnapshot(handleSnapshot)
-  }
-
-  const handleSnapshot = snapshot => {
-    const products = snapshot.docs.map(doc => {
-      return { id: doc.id, ...doc.data() }
-    })
-    setProducts(products)
-  }
 
   return (
     <div className={styles.menu_container}>

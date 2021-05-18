@@ -1,11 +1,11 @@
 import { useContext, useRef } from 'react'
-import { FirebaseContext } from '../../firebase'
+import FirebaseContext from '../../context/firebaseContext'
 import styles from './card.module.css'
 
 const Card = ({ values }) => {
   const { id, image, name, description, stock, price, category } = values
 
-  const { firebase } = useContext(FirebaseContext)
+  const { setStock } = useContext(FirebaseContext)
 
   const stockRef = useRef()
 
@@ -13,7 +13,7 @@ const Card = ({ values }) => {
     const selectValue = stockRef.current.value
     const stock = selectValue === 'true'
 
-    firebase.db.collection('products').doc(id).update({ stock })
+    setStock(id, stock)
   }
 
   return (

@@ -1,6 +1,6 @@
 import styles from './app.module.css'
 import { Routes, Route } from 'react-router'
-import firebase, { FirebaseContext } from './firebase'
+import FirebaseState from './context/firebaseState'
 import Home from './components/pages/Home/Home'
 import Orders from './components/pages/Orders/Orders'
 import Menu from './components/pages/Menu/Menu'
@@ -10,7 +10,7 @@ import Sidebar from './components/Sidebar/Sidebar'
 
 export default function App() {
   return (
-    <FirebaseContext.Provider value={{ firebase }}>
+    <FirebaseState>
       <div className={styles.container}>
         <Sidebar />
         <div className={styles.container__components}>
@@ -23,6 +23,6 @@ export default function App() {
           </Routes>
         </div>
       </div>
-    </FirebaseContext.Provider>
+    </FirebaseState>
   )
 }

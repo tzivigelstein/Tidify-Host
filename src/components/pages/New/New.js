@@ -2,8 +2,7 @@ import { useContext, useState } from 'react'
 import styles from './new.module.css'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
-import { FirebaseContext } from '../../../firebase'
-import { useNavigate } from 'react-router-dom'
+import FirebaseContext from '../../../context/firebaseContext'
 import FileUploader from 'react-firebase-file-uploader'
 import Preview from '../../Preview/Preview'
 
@@ -12,9 +11,7 @@ const New = () => {
   const [progress, setProgress] = useState(0)
   const [imageUrl, setImageUrl] = useState('')
 
-  const { firebase } = useContext(FirebaseContext)
-
-  const router = useNavigate()
+  const { addProduct, url, getUrl, storageRef } = useContext(FirebaseContext)
 
   const formik = useFormik({
     initialValues: {
@@ -32,10 +29,9 @@ const New = () => {
     }),
     onSubmit: data => {
       const sold = randomSold(0, 100000)
-      const newData = { ...data, image: imageUrl, sold, bestSeller: false, createdAt: Date.now() }
+      const newProduct = { ...data, image: imageUrl, sold, bestSeller: false, createdAt: Date.now() }
       try {
-        firebase.db.collection('products').add(newData)
-        router('/menu')
+        addProduct(newProduct)
       } catch (error) {
         console.log(error)
       }
@@ -60,9 +56,7 @@ const New = () => {
   const handleUploadSuccess = async name => {
     setProgress(100)
     setUploading(false)
-
-    const url = await firebase.storage.ref('products').child(name).getDownloadURL()
-
+    getUrl()
     setImageUrl(url)
   }
 
@@ -189,7 +183,7 @@ const New = () => {
                 id="image"
                 name="name"
                 randomizeFilename="true"
-                storageRef={firebase.storage.ref('products')}
+                storageRef={storageRef}
                 className={styles.field_container__input}
                 onUploadStart={handleUploadStart}
                 onUploadError={handleUploadError}
