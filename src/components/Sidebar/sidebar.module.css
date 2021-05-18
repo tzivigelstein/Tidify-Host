@@ -52,7 +52,7 @@
   flex-direction: column;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 992px) {
   .sidebar {
     width: 100%;
     height: max-content;
